@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Sequence, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
+from datetime import datetime
 
 from database import connector
 
@@ -30,7 +31,7 @@ class Question(connector.Manager.Base):
     question = Column(String(250))
     description = Column(String(1200))
     score = Column(Integer)
-    question_date = Column(DateTime(timezone=True))
+    question_date = Column(default=datetime.now())
 
 class Answer(connector.Manager.Base):
     __tablename__ = 'answers'
@@ -38,7 +39,7 @@ class Answer(connector.Manager.Base):
     user_from_id = Column(Integer, ForeignKey('users.id_user'))
     question_from_id = Column(Integer, ForeignKey('questions.id_question'))
     answer = Column(String(1500))
-    question_date = Column(DateTime(timezone=True))
+    question_date = Column(default=datetime.now())
     score = Column(Integer)
     #star = Column(Boolean(create_constraint=False))
 
