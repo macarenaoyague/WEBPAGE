@@ -33,7 +33,7 @@ class Question(connector.Manager.Base):
     score = Column(Integer)
     question_date = Column(default=datetime.now())
 
-class Answer(connector.Manager.Base):
+class Answer(connector.Manafiger.Base):
     __tablename__ = 'answers'
     id_answer = Column(Integer, Sequence('post_id_seq'), primary_key=True)
     user_from_id = Column(Integer, ForeignKey('users.id_user'))

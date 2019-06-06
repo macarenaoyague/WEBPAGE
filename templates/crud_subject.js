@@ -1,6 +1,6 @@
 $(function(){
-    var url = "http://127.0.0.1:8080/subjects";
-    var urlCareers = "http://127.0.0.1:8080/careers";
+    var url = "http://0.0.0.0:8080/subjects";
+    var urlCareers = "http://0.0.0.0:8080/careers";
 
     $("#grid").dxDataGrid({
         dataSource: DevExpress.data.AspNet.createStore({
